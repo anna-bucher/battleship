@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\title{Battleship with ZK-SNARKS}
+\begin{document}
+\maketitle
+\section{Definitions}
+A \textbf{shot} represents a player's attempt at shooting at a ship. A \textbf{hit} represents a shot that has reached a ship. A \textbf{kill} represents a successful sinking of a ship.
+\section{Setup}
+We use two different proofs. The first one $P_g$ proves that the grid provided by the opponent is valid and has the hash value $h$ and the second one $P_s$ proves that the given list of shots $S_i$ for grid of hash $h$ produce the correct number of hits $H_i$ and kills $K_i$ for turn $i$.
+\section{Encoding}
+A \textbf{grid} is represented as an ordered list $\{b_1, b_2, ..., b_{100}\}$ where $b_i \in \{0,1\}$ representing the squares of the board from left to right and top to bottom: 
+
+  \begin{align*}
+\textrm{grid} = \{ & \textrm{A1, B1, ..., J1,} \\
+                   & \textrm{A2, B2, ..., J2,} \\
+                   & \vdots \\
+                   & \textrm{A10, B10, \dots, J10}\}
+  \end{align*}
+  \begin{align*}
+             = \{b_1, b_2, \dots, b_{100}\}\ \textrm{with}\ b_i \in \{0,1\}
+  \end{align*}
+We encode the position of each ship as a unique number in $\mathbb{Z}_2^{100}$
+\end{document}
