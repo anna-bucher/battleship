@@ -2,7 +2,8 @@
   "description": "Battleship using ZK-proofs",
   "scripts": {
     "start": "npx ts-node ./src/index.ts",
-    "test": "npx mocha"
+    "test": "npx mocha",
+    "test:watch": "npx mocha --watch"
   },
   "dependencies": {
     "circomkit": "file:../circomkit",

@@ -4,14 +4,16 @@ include "circomlib/circuits/mux1.circom";
 include "circomlib/circuits/bitify.circom";
 include "circomlib/circuits/comparators.circom";
 
-// FIRST VERSION WITH A 3x3 grid
-template Vessel3() {
+// Validate a vessel with 3 squares
+// FIRST VERSION WITH A FIXED 3x3 grid
+template Vessel3() {// GRID_SIDE) {
+  // var GRID_SIZE = GRID_SIDE * GRID_SIDE;
   signal input v;
   signal input po;
   signal input pv;
 
   // CHECK that v is max 9 bits
-  component n2_v = Num2Bits(9); // grid size => 9 
+  component n2_v = Num2Bits(9);
   n2_v.in <== v;
 
   // CHECK po in {0,1,2}
